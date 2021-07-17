@@ -11,7 +11,7 @@ local function createComboZone(zones, options)
 end
 
 local function createEntityZone(entity, options)
-    EntityZone:Create(entity, options)
+    return EntityZone:Create(entity, options)
 end
 
 exports('CircleZone:Create', createCircleZone)
