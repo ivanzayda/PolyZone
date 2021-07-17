@@ -61,10 +61,19 @@ local function createEntityZone(id, netId, options, eventToTriggerOnEnter, event
     end
 end
 
+local function removeZone(id)
+    if not _zones[id] then
+        return print('ZONE WITH ID %s DOES NOT EXIST')
+    end
+    local zone = _zones[id]
+    _zones[id] = nil
+    zone:destroy()
+end
+
 registerEvent('CircleZone:Create', createCircleZone)
 registerEvent('BoxZone:Create', createBoxZone)
 registerEvent('ComboZone:Create', createComboZone)
 registerEvent('EntityZone:Create', createEntityZone)
-
+registerEvent('Zone:remove', removeZone)
 
 
